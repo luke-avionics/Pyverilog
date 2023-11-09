@@ -79,6 +79,12 @@ class BindVisitor(NodeVisitor):
 
     def visit_Tri(self, node):
         self.addTerm(node)
+    
+    def visit_Tri1(self, node):
+        self.addTerm(node)
+
+    def visit_Tri0(self, node):
+        self.addTerm(node)
 
     def visit_Integer(self, node):
         self.addTerm(node)

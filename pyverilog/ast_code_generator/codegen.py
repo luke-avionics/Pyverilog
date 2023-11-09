@@ -311,6 +311,30 @@ class ASTCodeGenerator(ConvertVisitor):
         rslt = template.render(template_dict)
         return rslt
 
+    def visit_Tri1(self, node):
+        filename = getfilename(node)
+        template = self.get_template(filename)
+        template_dict = {
+            'name': escape(node.name),
+            'width': '' if node.width is None else self.visit(node.width),
+            'signed': node.signed,
+            'dimensions': '' if node.dimensions is None else self.visit(node.dimensions),
+        }
+        rslt = template.render(template_dict)
+        return rslt
+
+    def visit_Tri0(self, node):
+        filename = getfilename(node)
+        template = self.get_template(filename)
+        template_dict = {
+            'name': escape(node.name),
+            'width': '' if node.width is None else self.visit(node.width),
+            'signed': node.signed,
+            'dimensions': '' if node.dimensions is None else self.visit(node.dimensions),
+        }
+        rslt = template.render(template_dict)
+        return rslt
+
     def visit_Wire(self, node):
         filename = getfilename(node)
         template = self.get_template(filename)

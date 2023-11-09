@@ -53,7 +53,7 @@ class VerilogLexer(object):
     keywords = (
         'MODULE', 'ENDMODULE', 'BEGIN', 'END', 'GENERATE', 'ENDGENERATE', 'GENVAR',
         'FUNCTION', 'ENDFUNCTION', 'TASK', 'ENDTASK',
-        'INPUT', 'INOUT', 'OUTPUT', 'TRI', 'REG', 'LOGIC', 'WIRE', 'INTEGER', 'REAL', 'SIGNED',
+        'INPUT', 'INOUT', 'OUTPUT', 'TRI', 'TRI1', 'TRI0', 'REG', 'LOGIC', 'WIRE', 'INTEGER', 'REAL', 'SIGNED',
         'PARAMETER', 'LOCALPARAM', 'SUPPLY0', 'SUPPLY1',
         'ASSIGN', 'ALWAYS', 'ALWAYS_FF', 'ALWAYS_COMB', 'ALWAYS_LATCH', 'SENS_OR', 'POSEDGE', 'NEGEDGE', 'INITIAL',
         'IF', 'ELSE', 'FOR', 'WHILE', 'CASE', 'CASEX', 'CASEZ', 'UNIQUE', 'ENDCASE', 'DEFAULT',

@@ -306,6 +306,11 @@ class Inout(Variable):
 class Tri(Variable):
     pass
 
+class Tri1(Variable):
+    pass
+
+class Tri0(Variable):
+    pass
 
 class Wire(Variable):
     pass

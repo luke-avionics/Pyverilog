@@ -58,6 +58,12 @@ class SignalVisitor(NodeVisitor):
 
     def visit_Tri(self, node):
         self.frames.addSignal(node)
+    
+    def visit_Tri1(self, node):
+        self.frames.addSignal(node)
+    
+    def visit_Tri0(self, node):
+        self.frames.addSignal(node)
 
     def visit_Integer(self, node):
         self.frames.addSignal(node)

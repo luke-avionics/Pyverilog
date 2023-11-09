@@ -306,6 +306,16 @@ class VerilogParser(object):
         p[0] = p[1]
         p.set_lineno(0, p.lineno(1))
 
+    def p_sigtype_tri1(self, p):
+        'sigtype : TRI1'
+        p[0] = p[1]
+        p.set_lineno(0, p.lineno(1))
+
+    def p_sigtype_tri0(self, p):
+        'sigtype : TRI0'
+        p[0] = p[1]
+        p.set_lineno(0, p.lineno(1))
+
     def p_sigtype_reg(self, p):
         'sigtype : REG'
         p[0] = p[1]
@@ -2326,12 +2336,14 @@ def parse(
     preprocess_include=None,
     preprocess_define=None,
     outputdir=".",
+    preprocess_output='preprocess.output',
     debug=True
 ):
     codeparser = VerilogCodeParser(
         filelist,
         preprocess_include=preprocess_include,
         preprocess_define=preprocess_define,
+        preprocess_output=preprocess_output,
         outputdir=outputdir,
         debug=debug
     )
