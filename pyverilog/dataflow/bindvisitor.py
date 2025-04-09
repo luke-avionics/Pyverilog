@@ -1050,7 +1050,23 @@ class BindVisitor(NodeVisitor):
 
         if isinstance(node, vast.FloatConst):
             return DFFloatConst(node.value)
-
+        
+        if isinstance(node, vast.StaticCast):
+            # Handle the cast operation by creating a dataflow tree for the right value being cast
+            # In StaticCast, the value to be cast is in the 'right' attribute, not 'value'
+            right_df = self.makeDFTree(node.right, scope)
+            
+            # Get the casting type (which is the target width/type for the cast)
+            # This might be an expression like "aligned_width_lp"
+            if node.casting_type is not None:
+                casting_type_df = self.makeDFTree(node.casting_type, scope)
+                # We could use this for preserving width information if needed
+            
+            # For now, just return the inner value's dataflow representation
+            # The cast information is not preserved in the dataflow graph
+            # but for analysis purposes, this should be sufficient
+            return right_df
+            
         if isinstance(node, vast.StringConst):
             return DFStringConst(node.value)
 
